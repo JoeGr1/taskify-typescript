@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import "./InputFeild.css";
 
@@ -13,9 +13,18 @@ export const InputFeild: React.FC<Props> = ({
   setTodo,
   handleSubmit,
 }) => {
+  const inputRef = useRef<HTMLInputElement>(null);
+
   return (
-    <form className="input" onSubmit={handleSubmit}>
+    <form
+      className="input"
+      onSubmit={(e) => {
+        handleSubmit(e);
+        inputRef.current?.blur();
+      }}
+    >
       <input
+        ref={inputRef}
         type="input"
         className="input__box"
         placeholder="Enter Task"

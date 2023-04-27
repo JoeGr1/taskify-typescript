@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./App.css";
 import { InputFeild } from "./components/InputFeild/InputFeild";
+import { TodoList } from "./components/TodoList/TodoList";
 
-import { v4 as uuid } from "uuid";
+// import { v4 as uuid } from "uuid";
 import { Todo } from "./model";
 
 const App: React.FC = () => {
@@ -13,7 +14,8 @@ const App: React.FC = () => {
     e.preventDefault();
 
     if (todo) {
-      setTodos([...todos, { id: uuid(), todo: todo, isDone: false }]);
+      setTodos([...todos, { id: Date.now(), todo, isDone: false }]);
+      setTodo("");
     }
   };
 
@@ -22,6 +24,7 @@ const App: React.FC = () => {
       <span className="heading">taskify</span>
 
       <InputFeild todo={todo} setTodo={setTodo} handleSubmit={handleSubmit} />
+      <TodoList todos={todos} setTodos={setTodos} />
     </div>
   );
 };

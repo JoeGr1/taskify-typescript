@@ -1,12 +1,37 @@
 .todos {
   display: flex;
-  justify-content: space-evenly;
-  width: 90%;
-  flex-wrap: wrap;
+  width: 45%;
+  flex-direction: column;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: rgba(50, 195, 205);
+}
+
+.todos__heading {
+  font-size: 30px;
+  color: aliceblue;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 15px;
+  width: 95%;
+}
+
+.remove {
+  background-color: rgba(235, 103, 80);
 }
 
 @media (max-width: 800px) {
   .todos {
     width: 95%;
+    margin-bottom: 10px;
+  }
+
+  .container {
+    width: 95%;
+    flex-direction: column;
   }
 }
